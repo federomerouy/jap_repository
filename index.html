@@ -19,23 +19,20 @@
     <img src="img/login.png" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container">
-    <label for="uname"><b>Usuario</b></label>
-    <input type="text" placeholder="Ingrese usuario" name="uname" required>
-
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="Ingrese contraseña" name="psw" required>
+  <div class="grid_12 columns" style="background-color:#f3f3f3">
+    <div class="tab style-1"></div>
+    <input type="text" placeholder="Usuario" id="uname" required><br/>
+    <input type="password" placeholder="Contraseña" id="psw" required><br/>
     </label>
-  </div>
 
-  <div class="container" style="background-color:#f1f1f1">
+    <button type="submit" onclick="callme()"><b>Entrar</b></button><br/>
     <button type="reset" class="cancelbtn">Borrar datos</button>
-    <button type="submit">Entrar</button>
   </div>
 </form>
     </footer>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/login.js" type="text/javascript"></script>
   </body>
 </html>

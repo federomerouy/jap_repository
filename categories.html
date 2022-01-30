@@ -21,7 +21,15 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <div class="btn-group">
+          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
+
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="my-profile.html"> Mi perfil</a></li>
+          <li><a href="cart.html"> Mi carrito</a></li>
+          <li class="divider"></li>
+          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
+          </ul>
       </div>
     </nav>
     <main role="main" class="pb-5">
@@ -87,5 +95,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/session.js" type="text/javascript"></script>
   </body>
 </html>

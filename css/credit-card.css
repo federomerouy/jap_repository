@@ -1,0 +1,39 @@
+label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.heading h1 {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #4c4e56;
+}
+
+#mesVencimiento, #anioVencimiento {
+    width: 49%;
+}
+
+#CVV {
+    width: 100%;
+}
+
+#cardNumber {
+    width: 100%;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.transparent {
+    opacity: 0.2;
+}
+
+@media(max-width: 650px) {
+    .CVV,
+    #expiration-date,
+    #cardNumber {
+        width: 100%;
+    }
+    #cardNumber {
+        text-align: left;
+    }
+}

@@ -31,13 +31,21 @@
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        </div>
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <div class="btn-group">
+          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
+
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="my-profile.html"> Mi perfil</a></li>
+          <li><a href="cart.html"> Mi carrito</a></li>
+          <li class="divider"></li>
+          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
+          </ul>
+      </div>
     </nav>
       <div class="container">
         <div class="text-center p-4">
@@ -134,7 +142,7 @@
                   <label class="custom-control-label" for="standardradio">Estándar (3%)</label>
                 </div>
                 <div class="row">
-                  <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
                 </div>
               </div>
               <hr class="mb-4">
@@ -149,7 +157,7 @@
                   </li>
                   <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                      <h6 class="my-0">P0rcentaje</h6>
+                      <h6 class="my-0">Porcentaje</h6>
                       <small class="text-muted">Según el tipo de publicación</small>
                     </div>
                     <span class="text-muted" id="comissionText">-</span>
@@ -195,7 +203,7 @@
                   </div>
                   <hr>
                   <div class="row">
-                      <h5 class="text-primary">Stándar (7%)</h5>
+                      <h5 class="text-primary">Premium (7%)</h5>
                       <p class="muted text-justify">Se mostrará el producto en los primeros lugares de resultados de búsqueda, así cómo cuando se ingrese a la categoría que pertenezca.</p>
                   </div>
                   <hr>
@@ -217,5 +225,7 @@
       <script src="js/dropzone.js"></script>
       <script src="js/init.js"></script>
       <script src="js/sell.js"></script>
+      <script src="js/login.js"></script>
+      <script src="js/session.js" type="text/javascript"></script>
     </body>
 </html>

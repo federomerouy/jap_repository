@@ -1,6 +1,7 @@
 /* Bordered form */
 form {
   border: 3px solid #f1f1f1;
+  width: 100%;
 }
 
 /* Full-width inputs */
@@ -11,18 +12,21 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 /* Set a style for all buttons */
 button {
   background-color: #04AA6D;
+  align-content: center;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 0%;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 /* Add a hover effect for buttons */
@@ -33,10 +37,26 @@ button:hover {
 /* Extra style for the cancel button (red) */
 .cancelbtn {
   align-content: center;
-  width: 180px;
-  padding: 10px 18px;
-  background-color: #f44336;
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #f43427;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
 }
+
+/* Extra style for the Google logIn button (orange) */
+/*
+.googleLogInbtn {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 0%;
+  background-color: #f44422;
+}
+*/
 
 /* Center the avatar image inside this container */
 .imgcontainer {
@@ -51,14 +71,18 @@ img.avatar {
 }
 
 /* Add padding to containers */
-.container {
+.grid_12 {
   padding: 16px;
 }
 
 /* The "Forgot password" text */
 span.psw {
-  float: right;
-  padding-top: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* Change styles for span and cancel button on extra small screens */

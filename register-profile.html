@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <div class="btn-group">
+          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
+
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="my-profile.html"> Mi perfil</a></li>
+          <li><a href="cart.html"> Mi carrito</a></li>
+          <li class="divider"></li>
+          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
+          </ul>
+      </div>
+    </nav>
+  <div class="container p-5">
+    <form class="was-validated">
+    	<h2><b>Editar datos</b></h2> <br>
+      <label><b>Nombre:</b></label> <input type="text" class="form-control" id="input_nombre" placeholder="---NONE---" required> <br>
+      <!-- <div class="valid-content"></div> -->
+      <label><b>Apellido:</b></label> <input type="text" class="form-control" id="input_apellido" placeholder="---NONE---" required> <br>
+      <label><b>Edad:</b></label> <input type="number" class="form-control" id="input_edad" placeholder="---NONE---" required> <br>
+      <label><b>Correo:</b></label> <input type="email" class="form-control" id="input_correo" multiple placeholder="user@example.domain" required> <br>
+      <label><b>Teléfono de contacto:</b></label> <input type="number" class="form-control" id="input_telefono" placeholder="---NONE---" required> <br>
+        
+        </select> <br><br><b>Foto de perfil: </b><input type="file" id="foto_perfil" onchange="previewFile()" required> <br> <br>
+        <img src="img/avatar.png" height="200" id="input_imagen"> <br><br>
+
+      <button type="button"id="guardardatos" onclick="dataProfile()" data-toggle="modal" data-target="#savedModal"><b>Guardar</b></button>
+    <form class="was-validated">
+  </div>
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal fade" id="savedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Éxito!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Sus cambios han sido guardados.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="my-profile.html" class="btn btn-secondary" id="btnModalClose"><b>Volver</b></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <!-- <script src="js/my-profile.js"></script> -->
+  <script src="js/login.js"></script>
+  <script src="js/session.js" type="text/javascript"></script>
+  <script src="js/register-profile.js" type="text/javascript"></script>
+</body>
+
+</html>

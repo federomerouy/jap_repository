@@ -34,22 +34,37 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-    </div>
-  </nav>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <div class="btn-group">
+          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
+
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="my-profile.html"> Mi perfil</a></li>
+          <li><a href="cart.html"> Mi carrito</a></li>
+          <li class="divider"></li>
+          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
+          </ul>
+      </div>
+    </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <!-- <div id="infoUsuario"></div> <br><br> -->
+
+    <img src="img/avatar.png" height="200" id="foto_html"></img> <br> <br>
+    <div><b>Nombre: </b></div><div id="nombre_html">---NONE--- </div>
+    <div><b>Apellido: </b></div><div id="apellido_html"></div>
+    <div><b>Edad: </b><div id="edad_html">---NONE---</div></div> </br>
+    <div><b>Correo electrónico: </b></div><div id="correo_html">---NONE---</div>
+    <div><b>Teléfono de contacto: </b></div><div id="telefono_html">---NONE---</div> </br>
+
+    <!-- <button onclick="saludar()">qfv</button> -->
+
+    <a class="py-2 d-none d-md-inline-block" type="button" id="editarDatos" href="register-profile.html"><b>Editar</b></a>
+
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
@@ -76,6 +91,9 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/session.js" type="text/javascript"></script>
+  <script src="js/register-profile.js" type="text/javascript"></script>
 </body>
 
 </html>

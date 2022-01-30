@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PROD_COUNT = "Cost.";
+const ORDER_ASC_BY_PROD_COUNT = "Costo";
+const ORDER_DESC_BY_PROD_COUNT = "Cost.";
+const ORDER_ASC_BY_SOLD = "Vendidos";
+const ORDER_DESC_BY_SOLD = "Sold";
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var query = undefined;
 
 function sortCategories(criteria, array){
     let result = [];
@@ -28,13 +32,40 @@ function sortCategories(criteria, array){
             if ( a.name < b.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
+    }else if (criteria === ORDER_ASC_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.cost);
             let bCount = parseInt(b.cost);
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_PROD_COUNT){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( aCount < bCount ){ return -1; }
+            if ( aCount > bCount ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_ASC_BY_SOLD){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( a.soldCount > b.soldCount ){ return -1; }
+            if ( a.soldCount < b.soldCount ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_SOLD){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( a.soldCount < b.soldCount ){ return -1; }
+            if ( a.soldCount > b.soldCount ){ return 1; }
             return 0;
         });
     }
@@ -51,26 +82,30 @@ function showCategoriesList(){
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
 
+        if (query == undefined || 
+            category.name.toLowerCase().indexOf(query) != -1 || 
+            category.description.toLowerCase().indexOf(query) != -1) {
+
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.soldCount + ` vendidos</small>
-                        </div>
-                        <p class="mb-1">` + category.description + `</p>
-                        <h4 class="text-muted">`+ category.currency + " " + category.cost +`</h4>
-                    </div>
+            <div class="col-md-4 col-lg-3">
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+            
+                <img src="${category.imgSrc}" class="card-img-top" alt="${category.description}">
+                <div class="card-body">
+                    <h3 class="mb-3">${category.name}</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">${category.currency} ${category.cost}</h6>
+                            <p class="card-text">
+                                ${category.description}
+                             </p>
                 </div>
             </a>
+            </div>
             `
         }
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+
+        }
     }
 }
 
@@ -86,7 +121,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     //Muestro las categorías ordenadas
     showCategoriesList();
 }
-
+  
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -97,6 +132,27 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 
+    /*
+    window.addEventListener('load', function(e){
+        document.getElementById("searcherPro").addEventListener("input", () => { 
+            if(document.getElementById("searcherPro").value.toLowerCase() >= 1) {
+                fetch(`PRODUCTS_URL=${query.getElementById("searcherPro").value}`, {method: 'get'})
+                .then(resultObj => resultObj.data())
+                .then(query => {document.getElementById("searcherPro"),innerHTML = query})
+            }
+            showCategoriesList(); 
+        });
+    }
+    */
+
+    // Buscador en tiempo real
+    /*
+    document.getElementById("searcherPro").addEventListener("input", function(e){ 
+        query = document.getElementById("searcherPro").value.toLowerCase(); 
+        showCategoriesList(); 
+    });
+    */
+    
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });
@@ -106,8 +162,22 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_BY_PROD_COUNT);
+        sortAndShowCategories(ORDER_ASC_BY_PROD_COUNT);
     });
+
+
+    document.getElementById("sortByCounts").addEventListener("click", function(){
+        sortAndShowCategories(ORDER_DESC_BY_PROD_COUNT);
+    });
+
+    document.getElementById("sortBySold").addEventListener("click", function(){
+        sortAndShowCategories(ORDER_ASC_BY_SOLD);
+    });
+
+    document.getElementById("sortBySolds").addEventListener("click", function(){
+        sortAndShowCategories(ORDER_DESC_BY_SOLD);
+    });
+
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";

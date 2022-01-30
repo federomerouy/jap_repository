@@ -65,12 +65,19 @@ footer p {
 
 .site-header .dropdown-menu a {
   color: black;
+  float: center;
 }
 
 .dropzone{
   border: 2px dashed #0087F7;
   border-radius: 5px;
   background: white;
+}
+
+.dropzone:hover{
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: lightgray;
 }
 
 .alert{
@@ -138,4 +145,179 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+#saludo {
+  background-color: #ff2525;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#saludo:hover {
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#addCart {
+  background-color: #00dd00;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#addCart:hover {
+  background-color: #00ff00;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#addCart2 {
+  background-color: #00dd00;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#addCart2:hover {
+  background-color: #00ff00;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+.checked {
+  color: orange;
+}
+
+button {
+  background-color: #04AA6D;
+  align-content: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+#btnModalClose {
+  background-color: #1122FF;
+  align-content: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#editarDatos {
+  background-color: #1122EE;
+  align-content: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 9%;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#rangeFilterCount{
+  align-content: center;
+  color: black;
+  padding: 10px 15px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 0%;
+  letter-spacing: 0px;
+  border-radius: 10px 10px 10px 10px;
+
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  align-content: center;
+  width: 10%;
+  padding: 14px 20px;
+  background-color: #f43427;
+  letter-spacing: 1px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* Full-width inputs */
+textarea[id="comentario"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#foto_html {
+  border-radius: 50%;
+  background-image: url('avatar.png');
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
+
+#input_imagen {
+  border-radius: 50%;
+  background-image: url('avatar.png');
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  height: 300px;
+  width: 300px;
+  margin-left: 8%;
 }

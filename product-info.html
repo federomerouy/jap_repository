@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -22,17 +23,135 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="btn-group">
+        <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
+
+        <ul class="dropdown-menu" role="menu">
+        <li><a href="my-profile.html"> Mi perfil</a></li>
+        <li><a href="cart.html"> Mi carrito</a></li>
+        <li class="divider"></li>
+        <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
+      </ul>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+<div class="container p-5">
+  <hr class="my-3">
+    <h2 id="productName"></h2>
+      <button id="addCart2" class="py-2 d-none d-md-inline-block" href="cart.html"><img src="img/cart.png" alt="Avatar" class="avatar"><span class="mb-1"></span>Añadir al carrito</button>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Precio del producto</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id="productCategory"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="3000">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner" id="productImagesGallery">
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+  </dd>
+</div>
+
+<!-- <div class="container p-5">
+    <h3 id="commentName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Puntiación</dt>
+        <dd>
+          <p id="commentScore"></p>
+        </dd>
+
+        <dt>Descripción</dt>
+        <dd>
+          <p id="commentDescription"></p>
+        </dd>
+
+        <dt>Usuario</dt>
+        <dd>
+          <p id="commentUser"></p>
+        </dd>
+
+        <dt>Fecha</dt>
+        <dd>
+          <p id="commentDateTime"></p>
+        </dd>
+  </div> -->
+
+<div id="spinner-wrapper">
+    <div class="container p-5">
+      <dd>
+        <p id="commentDateTime"></p>
+      </dd>
+      <dd>
+        <p id="commentUser"></p>
+      </dd>
+      <dd>
+        <p id="commentScore"></p>
+
+      </dd>
+      <dd>
+        <p id="commentDescription"></p>
+      </dd>
     </div>
   </div>
+<div id="comentarios" class="container p-5"></div>
+
+<div class="spinner-wrapper">
+  <div class="container p-5">
+  <dd>
+    <h2>Productos relacionados</h2>
+  </dd>   
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <ol class="carousel-indicators" id="relatedData">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" id="relatedImg">
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+
+</div>
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -42,18 +161,15 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  
+
+  
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/login.js"></script> 
+  <script src="js/session.js" type="text/javascript"></script>
 </body>
 
 </html>
