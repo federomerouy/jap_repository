@@ -83,3 +83,61 @@ function porcentaje() {
   
    return resultado;
 }
+
+var mymap = L.map('mapid').setView([-34.896153586856826, -56.169921951022246], 13);
+    
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=4PxZstjsc8r0QupGuz5o', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        }).addTo(mymap);
+
+        L.marker([-34.896153586856826, -56.169921951022246]).addTo(mymap);
+
+function cardModal() {
+  let creditCard = document.getElementById('cardNumber').value;
+  let cvvCard = document.getElementById('CVV').value;
+  let bankCard = document.getElementById('accountNumber').value;
+  let htmlContentToAppend = "";
+  if((creditCard && cvvCard) || bankCard) {
+    htmlContentToAppend += `<div class="modal-dialog" role="document">  
+        <div class="modal-content">
+          <div>
+          <div class="modal-header">
+            <h4 class="modal-title" id="sucessfulBuyLabel">Su compra ha sido un éxito!</h4>
+          </div>
+          <div>
+            <label><b>Su pedido ya está en camino.</b></label>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <btn type="button" class="btn btn-secondary" data-dismiss="modal"><b>CERRAR</b></btn>
+          </div>
+        </div>
+      </div>`
+  } else {
+    htmlContentToAppend += `<div class="modal-dialog" id="modal-error" role="document">  
+        <div class="modal-content">
+          <div>
+          <div class="modal-header">
+          <div>
+            <h4 class="modal-title" id="sucessfulBuyLabel">ERROR: FALTAN DATOS</h4>
+          <div>
+          </br>
+            <label><b>Debe llenar los campos para completar su pedido.</b></label>
+          </div>
+          </div>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <label>Haga clic en cualquier lado para regresar.</label>
+            <!--<button type="button" class="btn btn-secondary" onclick="$('#modal-error').modal('hide');"><b>VOLVER</b></button>-->
+          </div>
+        </div>
+      </div>`
+  }
+  document.getElementById("modal-innerHTML").innerHTML = htmlContentToAppend;
+}        
+let btnComprar = document.getElementById("buy-button");
+
+btnComprar.addEventListener("click", function(e){
+  cardModal()
+});

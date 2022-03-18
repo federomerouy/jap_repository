@@ -9,6 +9,9 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" /> 
+  <!--https://leafletjs.com/examples/quick-start/-->
+  <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />-->
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -26,6 +29,10 @@
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
+
+    #mapid { 
+      height: 180px; 
+    }
     }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,28 +43,48 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <div class="btn-group">
-          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
-
-          <ul class="dropdown-menu" role="menu">
-          <li><a href="my-profile.html"> Mi perfil</a></li>
-          <li><a href="cart.html"> Mi carrito</a></li>
-          <li class="divider"></li>
-          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
-          </ul>
+  <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark float-right">
+    <a class="navbar-brand" href="home.html">
+      <img src="img/logo-jap-2020.svg" width="30" height="30" class="d-md-inline-block" alt="logo JaP">
+    </a>
+  </nav>
+    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  
+  <nav class="navbar-nav navbar-dark bg-dark text-right float-right">
+    <div class="d-md-inline mr-auto">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <!-- <div class="container navbar mr-auto"> -->
+             <a id="saludo" class="nav-item nav-link" data-toggle="dropdown" href="my-profile.html"></a>
+              <a class="nav-item nav-link" href="categories.html"> Categorías</a>
+              <a class="nav-item nav-link" href="products.html"> Productos</a>
+              <a class="nav-item nav-link" href="sell.html"> Vender</a>
+              <li class="divider"></li>
+              <a class="nav-item nav-link" href="my-profile.html"> Mi perfil</a></li>
+              <a class="nav-item nav-link active" href="cart.html"> Mi carrito</a></li>
+              <li class="divider"></li>
+              <a class="nav-item nav-link" id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a>
+          <!-- </div> -->
+        </div>
       </div>
+    </div>
+  </nav>
     </nav>
+  </nav>
 
   <!--
   -->
 
 <div class="card">
+  <div id="breadcrumb" class="breadcrumb">
+    <ul class="divider"></ul>
+    <a class="breadcrumb-item" href="home.html" style="color: #FF0000;"> HOME</a> <a class="breadcrumb-item active"><b> Mi carrito</b></a>
+    <ul class="divider"></ul>
+  </div>
     <div class="row">
         <div class="col-md-8 card">
             <div class="title">
@@ -164,7 +191,6 @@
                     <option value="12">Diciembre</option>
                   </select>
                   <select id="anioVencimiento">
-                    <option value="21"> 2021</option>
                     <option value="22"> 2022</option>
                     <option value="23"> 2023</option>
                     <option value="24"> 2024</option>
@@ -172,37 +198,45 @@
                     <option value="26"> 2026</option>
                     <option value="27"> 2027</option>
                     <option value="28"> 2028</option>
+                    <option value="21"> 2029</option>
                   </select>
                 </div>
+                <!--
+                <div>
+                  <label><b>Lugar de envío:</b></label> 
+                  <div id="mapid">
+                  </div>
+                </div>
+              -->
               </div>
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <label><b>Nº de cuenta:</b></label> <input type="number" class="form-control" id="accountNumber" placeholder="XXXXXXXXXX" required minlength="10">
+                <!--
+                <div>
+                  <label><b>Lugar de envío:</b></label> 
+                  <div id="mapid">
+                  </div>
+                </div>
+              -->
+                
+                
               </div>
+              <div>
+                  <label><b>Lugar de envío:</b></label> 
+                  <div id="mapid">
+                  </div>
+                </div>
             </div>
           </form>
         <div class="modal-footer">
-          <btn type="button" class="btn btn-secondary" data-toggle="modal" data-target="#buyModal"><b>COMPRAR</b></btn>
+          <btn type="button" class="btn btn-secondary" id="buy-button" data-toggle="modal" data-target="#buyModal"><b>COMPRAR</b></btn>
         </div>
       </div>
     </div>
   </div>
 
   <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">  
-        <div class="modal-content">
-          <div>
-          <div class="modal-header">
-            <h4 class="modal-title" id="sucessfulBuyLabel">Su compra ha sido un éxito!</h4>
-          </div>
-          <div>
-            <label><b>Su pedido ya está en camino.</b></label>
-          </div>
-        </div>
-          <div class="modal-footer">
-            <btn type="button" class="btn btn-secondary" data-dismiss="modal"><b>CERRAR</b></btn>
-          </div>
-        </div>
-      </div>
+      <div id="modal-innerHTML"></div>
     </div>
   </div>
 
@@ -219,6 +253,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
+  <!--<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>-->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
   <script src="js/cart.js"></script>
   <script src="js/login.js"></script>
   <script src="js/session.js" type="text/javascript"></script>

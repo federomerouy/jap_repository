@@ -1,0 +1,30 @@
+js:
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+--------------------
+
+    var mymap = L.map('mapid').setView([-34.896153586856826, -56.169921951022246], 13);
+    
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=4PxZstjsc8r0QupGuz5o', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        }).addTo(mymap);
+
+        L.marker([-34.896153586856826, -56.169921951022246]).addTo(mymap);
+
+
+-------------------------------------------------
+Head
+
+  <!--https://leafletjs.com/examples/quick-start/-->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+  <style>
+  
+  #mapid { height: 180px; }
+  
+  </style>
+
+-------------------------------------------------
+Html
+
+<div id="mapid"></div>

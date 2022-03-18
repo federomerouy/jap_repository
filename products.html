@@ -15,23 +15,38 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <div class="btn-group">
-          <a id="saludo" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><a>
-
-          <ul class="dropdown-menu" role="menu">
-          <li><a href="my-profile.html"> Mi perfil</a></li>
-          <li><a href="cart.html"> Mi carrito</a></li>
-          <li class="divider"></li>
-          <li><a id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a></li>
-          </ul>
+      <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark float-right">
+    <a class="navbar-brand" href="home.html">
+      <img src="img/logo-jap-2020.svg" width="40" height="40" class="d-md-inline-block" alt="logo JaP">
+    </a>
+  </nav>
+    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  
+  <nav class="navbar-nav navbar-dark bg-dark text-right float-right">
+    <div class="d-md-inline mr-auto">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <!-- <div class="container navbar mr-auto"> -->
+             <a id="saludo" class="nav-item nav-link" data-toggle="dropdown" href="my-profile.html"></a>
+              <a class="nav-item nav-link" href="categories.html"> Categorías</a>
+              <a class="nav-item nav-link active" href="products.html"> Productos</a>
+              <a class="nav-item nav-link" href="sell.html"> Vender</a>
+              <li class="divider"></li>
+              <a class="nav-item nav-link" href="my-profile.html"> Mi perfil</a></li>
+              <a class="nav-item nav-link" href="cart.html"> Mi carrito</a></li>
+              <li class="divider"></li>
+              <a class="nav-item nav-link" id="logOut" class="py-2 d-none d-md-inline-block" onclick="signOut()"> Salir</a>
+          <!-- </div> -->
+        </div>
       </div>
+    </div>
+  </nav>
     </nav>
+  </nav>
 
     <main role="main" class="pb-5">
         <div class="text-center p-4">
@@ -39,6 +54,11 @@
             <p class="lead">Aquí verás todos los productos.</p>
         </div>
         <div class="container">
+          <div id="breadcrumb" class="breadcrumb">
+    <ul class="divider"></ul>
+      <a class="breadcrumb-item" href="home.html" style="color: #FF0000;"> HOME</a> <a class="breadcrumb-item active"><b> Productos</b></a>
+    <ul class="divider"></ul>
+  </div>
             <div class="row">
               <div class="col-md-6 text left">
                 <input class="form-control" type="search" placeholder="Buscar..." id="Buscar" />

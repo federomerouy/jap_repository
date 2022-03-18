@@ -1,3 +1,7 @@
+#main{
+  background-color: #CCFF00
+}
+
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
@@ -147,6 +151,7 @@ a.custom-card:hover {
   color: orange;
 }
 
+/*
 #saludo {
   background-color: #ff2525;
   color: white;
@@ -167,6 +172,35 @@ a.custom-card:hover {
   border: none;
   cursor: pointer;
   width: 10%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+*/
+
+#a.nav-item nav-link {
+  color:  white;
+}
+
+#logOut {
+  background-color: #ff2525;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10%;
+  border-radius: 5px;
+}
+
+#logOut:hover {
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
   border-radius: 10%;
   border-radius: 5px;
 }
@@ -231,7 +265,6 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 15%;
   letter-spacing: 1px;
   border-radius: 10px 10px 10px 10px;
 }
